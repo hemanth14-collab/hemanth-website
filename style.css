@@ -245,3 +245,29 @@ em { font-style: italic; color: var(--accent); }
   .media-card:last-child:nth-child(odd) { flex-direction: row; }
   .media-card:last-child:nth-child(odd) .media-thumb { flex: 0 0 50%; aspect-ratio: auto; min-height: 220px; }
 }
+
+/* Seven highlight cards: 2 + 3 + 2 on wide screens */
+@media (min-width: 901px) {
+  .media-card:nth-child(n+6) { grid-column: span 3; }
+}
+
+/* Resume */
+.resume { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px; margin-bottom: 48px; }
+.resume-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.resume-head p { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+.resume-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.resume-frame { display: block; width: 100%; height: 1100px; max-height: 85vh; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-alt); }
+.resume-preview { display: none; position: relative; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-decoration: none; }
+.resume-preview img { width: 100%; height: auto; }
+.resume-preview span {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 48px 16px 16px; text-align: center; font-weight: 600; font-size: 0.95rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 60%); color: var(--ink);
+}
+@media (max-width: 760px) {
+  .resume { padding: 18px; }
+  .resume-frame { display: none; }
+  .resume-preview { display: block; }
+  .resume-actions { width: 100%; }
+  .resume-actions .btn { flex: 1; text-align: center; }
+}
+.resume, #experience, #highlights, #dashboard, #impact { scroll-margin-top: 80px; }
